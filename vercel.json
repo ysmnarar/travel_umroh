@@ -1,12 +1,19 @@
 {
     "version": 2,
+    "builds": [
+        {
+            "src": "Dockerfile",
+            "use": "@vercel/docker"
+        }
+    ],
     "framework": null,
     "functions": {
         "api/index.php": { "runtime": "vercel-php@8.2.0" }
     },
     "routes": [
         { "src": "/build/(.*)", "dest": "/public/build/" },
-        { "src": "/(.*)", "dest": "/api/index.php" }
+        { "src": "/(.*)", "dest": "/api/index.php" },
+        { "src": "/(.*)", "dest": "/" }
     ],
     "public": true,
     "buildCommand": "vite build",
