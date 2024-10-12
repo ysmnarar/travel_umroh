@@ -8,8 +8,5 @@
                 "distDir": "public"
             }
         }
-    ],
-    "ignore": [
-    "README.md"
-  ]
+    ]
 }
