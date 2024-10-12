@@ -1,11 +1,16 @@
 <?php
 
-require __DIR__.'/../resources/views/layouts/app.blade.php';
+require 'vendor/autoload.php';
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+use Illuminate\Support\Facades\Blade;
 
-$app->bind('path.public', function($app) {
-    return __DIR__;
-});
+// Inisialisasi aplikasi Laravel
+$app = require_once 'bootstrap/app.php';
 
-$app->run();
+// Render template Blade
+$html = Blade::render('resource.view.layout.app', [
+    // Tambahkan data yang diperlukan di sini
+]);
+
+// Simpan hasil render ke file HTML
+file_put_contents('app.html', $html);
