@@ -18,7 +18,9 @@ use App\Http\Controllers\JamaahController;
 |
 */
 
-Route::get('/', 'BaseController@app');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
